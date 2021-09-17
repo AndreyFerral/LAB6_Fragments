@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:text="Button" />
+        android:text="Кнопка" />
 
     <ImageButton
         android:id="@+id/imageButton6"
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:text="CheckBox" />
+        android:text="Флажок" />
 
     <ToggleButton
         android:id="@+id/toggleButton2"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:text="ToggleButton"
-        android:textOff="OFF"
-        android:textOn="ON" />
+        android:textOff="Выключить"
+        android:textOn="Включить" />
 
 </FrameLayout>
