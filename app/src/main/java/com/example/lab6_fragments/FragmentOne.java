@@ -15,20 +15,24 @@ import android.widget.ToggleButton;
 
 public class FragmentOne extends Fragment {
 
+    // Вложенный интерфейс для обращения к активити
     interface OnFragmentSendDataListener {
         void onSendData(String data);
     }
 
     private OnFragmentSendDataListener fragmentSendDataListener;
+
     private Button button;
     private ToggleButton toggleButton;
     private CheckBox checkBox;
     private ImageButton imageButton;
 
     @Override
+    // Метод вызывается, когда фрагмент связывается с активити
     public void onAttach(Context context) {
         super.onAttach(context);
         try {
+            // Получаем слушатель для отправки данных
             fragmentSendDataListener = (OnFragmentSendDataListener) context;
         }
         catch (ClassCastException e) {
@@ -43,11 +47,13 @@ public class FragmentOne extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_one, container, false);
 
+        // Определяем необходимые элементы управления
         button = view.findViewById(R.id.button2);
         toggleButton = view.findViewById(R.id.toggleButton2);
         checkBox = view.findViewById(R.id.checkBox);
         imageButton = view.findViewById(R.id.imageButton6);
 
+        // Разграничиваем элементы управления для дальнейшний обработки
         button.setOnClickListener(onClickListener(1));
         toggleButton.setOnClickListener(onClickListener(2));
         checkBox.setOnClickListener(onClickListener(3));
@@ -56,6 +62,7 @@ public class FragmentOne extends Fragment {
         return view;
     }
 
+    // Обрабатываем нажатия на элементы управления
     private View.OnClickListener onClickListener(final int style) {
         return new View.OnClickListener() {
             @Override
@@ -65,6 +72,8 @@ public class FragmentOne extends Fragment {
                 else if (style == 2) { nameObject = toggleButton.getText().toString(); }
                 else if (style == 3) { nameObject = checkBox.getText().toString(); }
                 else if (style == 4) { nameObject = "Изображение"; }
+
+                // Отправляем информацию
                 fragmentSendDataListener.onSendData(nameObject);
             }
         };
